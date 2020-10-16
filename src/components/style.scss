@@ -1,0 +1,360 @@
+// $mustard: #fca311;
+// $mustard: rgba(252, 163, 17, 0.95);
+// $ltgray: rgba(255, 255, 255, 0.75);
+// $purple: #4b3f72;
+// $blue: #4584D4;
+// $blue: #428ff5;
+
+$navy: #023047;
+// $mustard: #ffb703;
+// $orange: #fb8500;
+// $teal: #219ebc;
+// $ltblue: #8ecae6;
+
+//$color2: #fe8d7b;
+$color1: #00aeb8;
+$color2: #ffc107;
+//$color3: #dc6140;
+$color3: #f0643e;
+$color4: #c7dac7;
+$soft-white: rgba(255, 255, 255, 0.95);
+$soft-black: rgba(0, 0, 0, 0.9);
+
+$title-font: Staatliches;
+$body-font: Kanit;
+
+
+body {
+    background-color: black;
+    color: white;
+    font-family: $body-font;
+    font-weight: 300;
+}
+h1{
+    font-family: $title-font;
+    color: $color1;
+}
+h3{
+    margin-bottom: 4px;
+    color: $soft-white;
+}
+.btn-lg{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: $soft-black;
+}
+.btn-sm{
+    font-weight: 400;
+}
+.btn-light{
+    background-color: $soft-white;
+}
+.row{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+small{
+    font-weight: 300;
+}
+a:link{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+
+//layout component
+.layout{
+    margin-top: 20px;
+}
+.navbar-brand{
+    font-family: $title-font;
+    font-size: 33px;
+    color: $color1 !important;
+    margin-right: 0px;
+    @media (min-width: 768px) {
+        font-size: 48px;
+    }
+}
+.navbar{
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-bottom: $color1 solid 3px;
+}
+.navbar-nav{
+    margin-right: 0px !important;
+}
+.nav-link{
+    color: $color2 !important;
+    font-family: Overpass !important;
+    padding-left: 18px !important;
+}
+.navbar-collapse{
+    justify-content: flex-end;
+}
+.navbar-toggler{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+//index page
+.index-wrapper{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media (min-width: 992px){
+        //set the background image
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url("/img/home_background.jpg");
+    }
+}
+//needed for the background image
+body, html{
+    height: 100%;
+}
+.index-content{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.index-headline{
+    font-size: 85px;
+    display: flex;
+    margin-bottom: -20px;
+    justify-content: center;
+    text-align-last: center;
+}
+.fayetteville{
+    @media (min-width: 992px){
+        justify-content: flex-end;
+        padding-right: 1px;
+        margin-bottom: 8px;
+    }
+}
+.street-art{
+    color: $soft-white;
+}
+.street-art{
+    &.index-headline{
+        @media (min-width: 992px){
+            display: inline;
+            justify-content: flex-start;
+            padding-left: 1px !important;
+            padding-right: 10px !important;
+        }
+    }
+}
+.heading-col{
+    // display: flex;
+    // justify-content: center;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.col-xs-12{
+    text-align: center;
+    @media (min-width: 768px){
+        text-align: left;
+    }
+}
+.left-column{
+    @media (min-width: 768px){
+        justify-content: flex-end;
+        text-align: end;
+    }
+}
+.tagline-top{
+    margin-top: 10px;
+    @media (min-width: 768px){
+        margin-top: 18px;
+    }
+}
+.tagline-bottom{
+    margin-bottom: 2px;
+    @media (min-width: 768px) {
+        margin-bottom: 8px;
+    }
+}
+.spoilers{
+    font-size: 24px;
+    font-weight: 400;
+    // font-weight: 200;
+    // font-style: italic;
+}
+.transparent-brick{
+    @media (min-width: 992px){
+        background-color: rgba(169, 88, 69, 0.8);
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+.cta-button-column{
+    margin-top: 50px;
+    @media (min-width: 768px){
+        margin-top: 45px;
+    }
+}
+.mobile-next-button{
+    margin-left: 20px;
+    //hide mobile button when width is 1200px or more
+    @media only screen and (min-width: 1200px){
+        display: none;
+    }
+}
+.desktop-next-button{
+    //hide desktop button with width is less than 1200px
+    @media only screen and (max-width: 1199.999px){
+        display: none;
+    }
+}
+
+//spoilers page
+.thumbnail{
+    width: 250px;
+}
+.thumbnail-col{
+    margin-bottom: 30px;
+    max-width: 280px;
+    display: flex;
+    justify-content: center;
+}
+.thumbnail-row{
+    margin-top: 30px;
+}
+.thumbnail-grid-wrapper{
+    margin: 0 auto;
+    //width of grid for one thumbnail: 15 + 250 + 15
+    width: 280px;
+
+    //custom breakpoints for the width(s) of this particular grid,
+    //depending on how many thumbnails fit on the screen
+    @media (min-width: 590px) {
+        //width of grid for 2 thumbnails: 15 + 250 + 30 + 250 + 15
+        width: 560px;
+    }
+    @media (min-width: 870px) {
+        //width of grid for 3 thumbnails: 15 + 250 + 30 + 250 + 30 + 250 + 15
+        width: 840px;
+    }
+    @media (min-width: 1150px) {
+        //width of grid for 4 thumbnails: 15 + 250 + 30 + 250 + 30 + 250 + 30 + 250 + 15
+        width: 1120px;
+    }
+    @media (min-width: 1430px) {
+        //width of grid for 5 thumbnails: 15 + 250 + 30 + 250 + 30 + 250 + 30 + 250 + 30 + 250 + 15
+        width: 1400px;
+    }
+}
+
+//mural template
+.template-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.template-header{
+    margin-bottom: 10px;
+}
+.carousel-item .img-fluid{
+    max-height: 550px;
+}
+.carousel-caption{
+    background-color: rgba(255, 255, 255, 0.5);
+    color: black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    bottom: 35px;
+}
+.carousel{
+    max-width: 978px;
+}
+.mobile-prev-next-button-row{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    //hide mobile button row when width is 992px or more
+    @media only screen and (min-width: 992px){
+        display: none;
+    }
+}
+.mobile-prev-next-button{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.desktop-prev-button-col{
+    display: flex;
+    justify-content: flex-start;
+}
+.desktop-next-button-col{
+    display: flex;
+    justify-content: flex-end;
+}
+.desktop-prev-next-button-col{
+    padding: 0px;
+    min-width: 110px;
+    //hide desktop button with width is less than 992px
+    @media only screen and (max-width: 991.999px){
+        display: none;
+    }
+}
+.template-header-col{
+    min-width: 756px; //width of carousel (978) - width of two button columns (110*2) - 2 because I had to
+}
+.mural-col{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // @media (min-width: 992px){
+        min-width: 1000px;
+    // }
+}
+
+//no spoilers page
+.modal-content{
+    color: black;
+    background-color: #f3f3f3;
+}
+.modal-label{
+    font-weight: 500;
+}
+.sneak-peek-card-body{
+    display: flex;
+    justify-content: flex-end;
+    //justify-content: center;
+    padding: 0px;
+}
+.sneak-peek{
+    max-width: 200px;
+}
+.sneak-peek-button{
+    margin-right: 10px;
+}
+.modal-col{
+    padding: 0px;
+}
+.modal-col-right{
+    max-width: 200px; //match sneak-peek
+}
+.modal-col-left{
+    width: 100%; //give left column all space except sneak-peek width
+}
+.modal-button-row{
+    width: 100%;
+}
+.modal-button-col{
+    display: flex;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.close-button-col{
+    justify-content: flex-start;
+}
+.other-buttons-col{
+    justify-content: flex-end;
+}
+
