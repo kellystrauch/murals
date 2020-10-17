@@ -7,7 +7,7 @@ import { graphql } from "gatsby"
 export default function Spoilers({data}) {
   return(
     <>
-      <Helmet>
+      <Helmet htmlAttributes={{ lang: 'en' }}>
         <title>Virtual Tour | Fayetteville Street Art</title>
         <meta name="description" content="Browse photos of the street art of Fayetteville, AR."></meta>
       </Helmet>
@@ -17,7 +17,7 @@ export default function Spoilers({data}) {
           <div className="row thumbnail-row">
             {data.allContentfulMural.nodes.map((node, index) => (
               <div className="col thumbnail-col" key={node.slug}>
-                <a href={`/${node.slug}`}><img className="thumbnail" src={node.thumbnail.file.url} alt={node.name}/></a>
+                <a href={`/${node.slug}`}><img className="thumbnail" src={node.thumbnail.file.url} alt={"thumbnail of " + node.name}/></a>
               </div>
             ))}
           </div>

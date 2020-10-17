@@ -33,7 +33,7 @@ export default function muralTemplate({data}) {
 
     return (
         <>
-            <Helmet>
+            <Helmet htmlAttributes={{ lang: 'en' }}>
                 <title>{mural.name} | Fayetteville Street Art</title>
                 <meta name="description" content={`Browse photos of the ${mural.name} mural in Fayetteville, AR.`}></meta>
             </Helmet>
@@ -75,7 +75,7 @@ export default function muralTemplate({data}) {
                             <Carousel>
                                 {mural.photos.map((photo, index) => (
                                     <Carousel.Item key={index}>
-                                        <img src={photo.file.url} alt={mural.name} className="img-fluid"/>
+                                        <img src={photo.file.url} alt={"image of " + mural.name} className="img-fluid"/>
                                         {photo.description && <Carousel.Caption>
                                             <small>{photo.description}</small>
                                         </Carousel.Caption>}

@@ -77,7 +77,7 @@ export default function NoSpoilers({data}) {
 
   return(
     <>
-      <Helmet>
+      <Helmet htmlAttributes={{ lang: 'en' }}>
         <title>In-Person Tour | Fayetteville Street Art</title>
         <meta name="description" content="Get all the information you need for an in-person tour of the street art of Fayetteville, AR."></meta>
       </Helmet>
@@ -121,7 +121,7 @@ export default function NoSpoilers({data}) {
                   </div>
                   {preview &&
                   <div className="col modal-col modal-col-right">
-                    <Image src={selected.thumbnail} className="sneak-peek" rounded />
+                    <Image src={selected.thumbnail} className="sneak-peek" alt={"thumbnail of " + selected.name} rounded />
                   </div>}
                 </div>
               </Modal.Body>

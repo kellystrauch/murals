@@ -6,7 +6,7 @@ import "../components/style.scss"
 export default function Home() {
   return(
     <>
-      <Helmet>
+      <Helmet htmlAttributes={{ lang: 'en' }}>
         <title>Fayetteville Street Art</title>
         <meta name="description" content="Tour the street art of Fayetteville, AR.  You get to choose if you want a virtual tour or an in-person one!"></meta>
       </Helmet>
