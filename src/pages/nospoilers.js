@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import "../components/style.scss"
 import { graphql } from "gatsby"
 import { GoogleMap, LoadScript, MarkerClusterer, Marker } from '@react-google-maps/api'
-import { Modal, Button, Accordion, Card, Image } from "react-bootstrap"
+import { Modal, Button, Image } from "react-bootstrap"
 
 export default function NoSpoilers({data}) {
 
@@ -14,6 +14,7 @@ export default function NoSpoilers({data}) {
   const [ show, setShow ] = useState(false);
   const [ center ] = useState({lat: 36.0825, lng: -94.1638});
   const [ zoom ] = useState(13); //the bigger the zoom, the more zoomed in
+  const [ preview, setPreview ] = useState(false);
 
   const mapOptions = {
     fullscreenControl: false,
@@ -63,6 +64,15 @@ export default function NoSpoilers({data}) {
 
   function hideModal(){
     setShow(false);
+    setPreview(false);
+  }
+
+  function toggleSneakPeek(){
+    if(preview){
+      setPreview(false);
+    }else{
+      setPreview(true);
+    }
   }
 
   return(
@@ -91,7 +101,7 @@ export default function NoSpoilers({data}) {
             </LoadScript>
 
             { selected &&
-            <Accordion><Modal show={show} onHide={hideModal}>
+            <Modal show={show} onHide={hideModal}>
               <Modal.Header closeButton>
                 <Modal.Title>
                   {selected.name}
@@ -109,30 +119,24 @@ export default function NoSpoilers({data}) {
                     { selected.building && <>{selected.building}<br/></> }
                     {selected.streetAddress}
                   </div>
+                  {preview &&
                   <div className="col modal-col modal-col-right">
-                  <Accordion.Collapse eventKey="0">
-                    <Card.Body className="sneak-peek-card-body">
-                      <Image src={selected.thumbnail} className="sneak-peek" rounded />
-                    </Card.Body>
-                  </Accordion.Collapse>
-                  </div>
+                    <Image src={selected.thumbnail} className="sneak-peek" rounded />
+                  </div>}
                 </div>
               </Modal.Body>
               <Modal.Footer>
                 <div className="row modal-button-row">
                   <div className="col-3 modal-button-col close-button-col">
-                    <Button className="btn-sm btn-secondary" onClick={hideModal} role="button">Close</Button>
+                    <Button className="btn-sm btn-secondary" onClick={hideModal}>Close</Button>
                   </div>
                   <div className="col-9 modal-button-col other-buttons-col">
-                    <Accordion.Toggle as={Button} className="btn-sm btn-warning sneak-peek-button" eventKey="0">
-                      Sneak Peek
-                    </Accordion.Toggle>
-                    <Button className="btn-sm btn-warning" onClick={() => { addSpot(selected)} } role="button">Add to Itinerary</Button>
+                    <Button className="btn-sm btn-warning sneak-peek-button" onClick={toggleSneakPeek}>Sneak Peek</Button>
+                    <Button className="btn-sm btn-warning" onClick={() => { addSpot(selected)} }>Add to Itinerary</Button>
                   </div>
                 </div>
               </Modal.Footer>
             </Modal>
-            </Accordion>
             }
 
           </div>
