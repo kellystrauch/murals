@@ -12,7 +12,7 @@ export default function NoSpoilers({data}) {
   const [ locations, setLocations ] = useState([]);
   const [ selected, setSelected ] = useState(null);
   const [ show, setShow ] = useState(false);
-  const [ center ] = useState({lat: 36.0825, lng: -94.1638});
+  const [ center ] = useState({lat: 36.08653, lng: -94.17015});
   const [ zoom ] = useState(13); //the bigger the zoom, the more zoomed in
   const [ preview, setPreview ] = useState(false);
 

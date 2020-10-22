@@ -40,48 +40,50 @@ export default function muralTemplate({data}) {
 
             <Layout>
                 <div className="template-wrapper">
-                    <div className="row mobile-prev-next-button-row">
-                        <div className="col-xs-12">
-                            <span className="mobile-prev-next-button">
-                                <a className="btn-sm btn-warning" href={`/${mural.previousSlug}`} role="button">Previous Mural</a>
-                            </span>
-                            <span className="mobile-prev-next-button">
-                                <a className="btn-sm btn-warning" href={`/${mural.nextSlug}`} role="button">Next Mural</a>
-                            </span>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col desktop-prev-next-button-col desktop-prev-button-col">
-                            <div>
-                                <a className="btn-sm btn-warning" href={`/${mural.previousSlug}`} role="button">Previous Mural</a>
+                    <div className="template-container">
+                        <div className="row mobile-prev-next-button-row">
+                            <div className="col-xs-12">
+                                <span className="mobile-prev-next-button">
+                                    <a className="btn-sm btn-warning" href={`/${mural.previousSlug}`} role="button">Previous Mural</a>
+                                </span>
+                                <span className="mobile-prev-next-button">
+                                    <a className="btn-sm btn-warning" href={`/${mural.nextSlug}`} role="button">Next Mural</a>
+                                </span>
                             </div>
                         </div>
-                        <div className="col template-header-col">
-                            <div className="template-header">
-                                <h3>
-                                    {mural.name}
-                                </h3>
-                                {mural.artistAndYear}
+                        <div className="row template-header-row">
+                            <div className="col desktop-prev-next-button-col desktop-prev-button-col">
+                                <div>
+                                    <a className="btn-sm btn-warning" href={`/${mural.previousSlug}`} role="button">Previous Mural</a>
+                                </div>
+                            </div>
+                            <div className="col">
+                                <div className="template-header">
+                                    <h3>
+                                        {mural.name}
+                                    </h3>
+                                    {mural.artistAndYear}
+                                </div>
+                            </div>
+                            <div className="col desktop-prev-next-button-col desktop-next-button-col">
+                                <div>
+                                    <a className="btn-sm btn-warning" href={`/${mural.nextSlug}`} role="button">Next Mural</a>
+                                </div>
                             </div>
                         </div>
-                        <div className="col desktop-prev-next-button-col desktop-next-button-col">
-                            <div>
-                                <a className="btn-sm btn-warning" href={`/${mural.nextSlug}`} role="button">Next Mural</a>
+                        <div className="row">
+                            <div className="col mural-col">
+                                <Carousel>
+                                    {mural.photos.map((photo, index) => (
+                                        <Carousel.Item key={index}>
+                                            <img src={photo.file.url} alt={"image of " + mural.name} className="img-fluid"/>
+                                            {photo.description && <Carousel.Caption>
+                                                <small>{photo.description}</small>
+                                            </Carousel.Caption>}
+                                        </Carousel.Item>
+                                    ))}
+                                </Carousel>
                             </div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col mural-col">
-                            <Carousel>
-                                {mural.photos.map((photo, index) => (
-                                    <Carousel.Item key={index}>
-                                        <img src={photo.file.url} alt={"image of " + mural.name} className="img-fluid"/>
-                                        {photo.description && <Carousel.Caption>
-                                            <small>{photo.description}</small>
-                                        </Carousel.Caption>}
-                                    </Carousel.Item>
-                                ))}
-                            </Carousel>
                         </div>
                     </div>
                 </div>

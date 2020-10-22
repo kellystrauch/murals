@@ -1,22 +1,7 @@
-// $mustard: #fca311;
-// $mustard: rgba(252, 163, 17, 0.95);
-// $ltgray: rgba(255, 255, 255, 0.75);
-// $purple: #4b3f72;
-// $blue: #4584D4;
-// $blue: #428ff5;
-
-$navy: #023047;
-// $mustard: #ffb703;
-// $orange: #fb8500;
-// $teal: #219ebc;
-// $ltblue: #8ecae6;
-
-//$color2: #fe8d7b;
 $color1: #00aeb8;
 $color2: #ffc107;
-//$color3: #dc6140;
-$color3: #f0643e;
-$color4: #c7dac7;
+//$color3: #f0643e;
+//$color4: #c7dac7;
 $soft-white: rgba(255, 255, 255, 0.95);
 $soft-black: rgba(0, 0, 0, 0.9);
 
@@ -207,7 +192,7 @@ body, html{
 }
 .desktop-next-button{
     //hide desktop button with width is less than 1200px
-    @media only screen and (max-width: 1199.999px){
+    @media only screen and (max-width: 1199.98px){
         display: none;
     }
 }
@@ -253,16 +238,25 @@ body, html{
 
 //mural template
 .template-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.template-container{
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    width: 100%;
+    @media (min-width: 576px){
+        width: 90%;
+    }
+    @media (min-width: 1111px){
+        width: 1000px;
+    }
 }
 .template-header{
     margin-bottom: 10px;
-}
-.carousel-item{
-    max-height: 550px;
 }
 .carousel-caption{
     background-color: rgba(255, 255, 255, 0.5);
@@ -270,9 +264,6 @@ body, html{
     padding-top: 5px;
     padding-bottom: 5px;
     bottom: 35px;
-}
-.carousel{
-    max-width: 978px;
 }
 .mobile-prev-next-button-row{
     display: flex;
@@ -296,23 +287,20 @@ body, html{
     justify-content: flex-end;
 }
 .desktop-prev-next-button-col{
-    padding: 0px;
+    padding: 5px 0px 0px;
     min-width: 110px;
-    //hide desktop button with width is less than 992px
-    @media only screen and (max-width: 991.999px){
+    max-width: 110px;
+    //hide desktop button when width is less than 992px
+    @media only screen and (max-width: 991.98px){
         display: none;
     }
 }
-.template-header-col{
-    min-width: 756px; //width of carousel (978) - width of two button columns (110*2) - 2 because I had to
+.template-header-row{
+    width: 100%;
 }
 .mural-col{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    // @media (min-width: 992px){
-        min-width: 1000px;
-    // }
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 //no spoilers page
