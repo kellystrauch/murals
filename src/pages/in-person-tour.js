@@ -6,7 +6,7 @@ import { graphql } from "gatsby"
 import { GoogleMap, LoadScript, MarkerClusterer, Marker } from '@react-google-maps/api'
 import { Modal, Button, Image } from "react-bootstrap"
 
-export default function NoSpoilers({data}) {
+export default function InPersonTour({data}) {
 
   const [ spots, setSpots ] = useState([]);
   const [ locations, setLocations ] = useState([]);

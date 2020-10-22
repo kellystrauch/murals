@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import "../components/style.scss"
 import { graphql } from "gatsby"
 
-export default function Spoilers({data}) {
+export default function VirtualTour({data}) {
   return(
     <>
       <Helmet htmlAttributes={{ lang: 'en' }}>

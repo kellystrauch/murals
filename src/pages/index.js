@@ -25,7 +25,7 @@ export default function Home() {
             <div className="col-sm-6 col-xs-12 left-column">
               <div className="row">
                 <div className="col-12 cta-button-column">
-                  <Link to="/nospoilers/" className="btn btn-lg btn-warning" role="button">Tour In Person</Link>
+                  <Link to="/in-person-tour/" className="btn btn-lg btn-warning" role="button">Tour In Person</Link>
                 </div>
                 <div className="col-12 tagline-top">
                   Get a map to see the murals in real life,
@@ -41,7 +41,7 @@ export default function Home() {
             <div className="col-sm-6 col-xs-12 right-column">
               <div className="row">
                 <div className="col-12 cta-button-column">
-                  <Link to="/spoilers/" className="btn btn-lg btn-warning" role="button">Tour Virtually</Link>
+                  <Link to="/virtual-tour/" className="btn btn-lg btn-warning" role="button">Tour Virtually</Link>
                 </div>
                 <div className="col-12 tagline-top">
                   <span className="transparent-brick">If you can't make it to Fayetteville in person,</span>

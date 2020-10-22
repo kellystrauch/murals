@@ -11,8 +11,8 @@ export default function Layout({children}) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="/nospoilers">In-Person Tour</Nav.Link>
-            <Nav.Link href="/spoilers">Virtual Tour</Nav.Link>
+            <Nav.Link href="/in-person-tour">In-Person Tour</Nav.Link>
+            <Nav.Link href="/virtual-tour">Virtual Tour</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
