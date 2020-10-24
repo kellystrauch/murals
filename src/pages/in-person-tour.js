@@ -62,6 +62,19 @@ export default function InPersonTour({data}) {
     setShow(false);
   }
 
+  function addAllSpots(){
+    setSpots(locations);
+    //TODO change the marker icon
+  }
+
+  function clearAllSpots(){
+    setSpots([]);
+  }
+
+  function print(){
+    window.print();
+  }
+
   function hideModal(){
     setShow(false);
     setPreview(false);
@@ -85,14 +98,14 @@ export default function InPersonTour({data}) {
       <Layout>
         <div className="row">
 
-          <div className="col-sm-8">
+          <div className="col-sm-8 no-print">
             <LoadScript googleMapsApiKey={process.env.GATSBY_GOOGLE_MAPS_API_KEY}>
               <GoogleMap options={mapOptions} mapContainerStyle={{width: '100%', height: '620px'}} center={center} zoom={zoom}>
                 <MarkerClusterer options={clustererOptions}>
                   {(clusterer) =>
                     locations.map((location, idx) => (
                       <div key={idx}>
-                        <Marker  position={location} clusterer={clusterer} title={location.name} onClick={ () => { clickMarker(location.slug)}} />
+                        <Marker position={location} clusterer={clusterer} title={location.name} onClick={ () => { clickMarker(location.slug)}} />
                       </div>
                     ))
                   }
@@ -121,7 +134,7 @@ export default function InPersonTour({data}) {
                   </div>
                   {preview &&
                   <div className="col modal-col modal-col-right">
-                    <Image src={selected.thumbnail} className="sneak-peek" alt={"thumbnail of " + selected.name} rounded />
+                    <a href={`/${selected.slug}`} target="_blank"><Image src={selected.thumbnail} className="sneak-peek" alt={"thumbnail of " + selected.name} rounded /></a>
                   </div>}
                 </div>
               </Modal.Body>
@@ -131,7 +144,7 @@ export default function InPersonTour({data}) {
                     <Button className="btn-sm btn-secondary" onClick={hideModal}>Close</Button>
                   </div>
                   <div className="col-9 modal-button-col other-buttons-col">
-                    <Button className="btn-sm btn-warning sneak-peek-button" onClick={toggleSneakPeek}>Sneak Peek</Button>
+                    <Button className="btn-sm btn-warning button-right-margin" onClick={toggleSneakPeek}>Sneak Peek</Button>
                     <Button className="btn-sm btn-warning" onClick={() => { addSpot(selected)} }>Add to Itinerary</Button>
                   </div>
                 </div>
@@ -142,26 +155,35 @@ export default function InPersonTour({data}) {
           </div>
 
           <div className="col-sm-4">
-            <h3>Itinerary</h3>
-            {spots.length === 0 && 
-              <em>Click a pin on the map to get started.</em>
-            }
-            {spots.length > 0 && 
-              <>
-                <ol>
-                  {spots.map( (spot, idx) => {
-                    return (
-                      <li key={idx}>
-                        {spot.name}
-                        <br/>
-                        { spot.building && <><small>{spot.building}</small><br/></> }
-                        <small>{spot.streetAddress}</small>
-                      </li>
-                    )
-                  })}
-                </ol>
-              </>
-            }
+            <div className="scrollable-section">
+              <div className="itinerary-button-container no-print">
+                <div>
+                  <Button className="btn-sm btn-warning button-right-margin" onClick={addAllSpots}>Add All</Button>
+                  <Button className="btn-sm btn-warning button-right-margin" onClick={clearAllSpots}>Clear All</Button>
+                </div>
+                <Button className="btn-sm btn-warning" onClick={print}>Print Itinerary</Button>
+              </div>
+              <h3>Itinerary</h3>
+              {spots.length === 0 && 
+                <em>Click a pin on the map to get started.</em>
+              }
+              {spots.length > 0 && 
+                <>
+                  <ol>
+                    {spots.map( (spot, idx) => {
+                      return (
+                        <li key={idx}>
+                          {spot.name}
+                          <br/>
+                          { spot.building && <><small>{spot.building}</small><br/></> }
+                          <small>{spot.streetAddress}</small>
+                        </li>
+                      )
+                    })}
+                  </ol>
+                </>
+              }
+            </div>
           </div>
 
         </div>

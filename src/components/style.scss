@@ -7,13 +7,16 @@ $soft-black: rgba(0, 0, 0, 0.9);
 
 $title-font: Staatliches;
 $body-font: Kanit;
-
+$nav-font: Overpass;
 
 body {
     background-color: black;
     color: white;
     font-family: $body-font;
     font-weight: 300;
+    @media print{
+        color: black;
+    }
 }
 h1{
     font-family: $title-font;
@@ -32,9 +35,6 @@ h3{
 .btn-sm{
     font-weight: 400;
 }
-.btn-light{
-    background-color: $soft-white;
-}
 .row{
     margin-left: 0px;
     margin-right: 0px;
@@ -47,6 +47,12 @@ a:link{
 }
 a:hover{
     text-decoration: none;
+}
+@media print{
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
 }
 
 //layout component
@@ -73,7 +79,7 @@ a:hover{
 }
 .nav-link{
     color: $color2 !important;
-    font-family: Overpass !important;
+    font-family: $nav-font !important;
     padding-left: 18px !important;
 }
 .navbar-collapse{
@@ -304,6 +310,19 @@ body, html{
 }
 
 //in-person tour page
+.scrollable-section{
+    max-height: 620px;
+    overflow: auto;
+    padding-right: 10px;
+}
+.itinerary-button-container{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.button-right-margin{
+    margin-right: 10px;
+}
 .modal-content{
     color: black;
     background-color: #f3f3f3;
@@ -314,9 +333,6 @@ body, html{
 .sneak-peek{
     max-width: 200px;
     margin-left: 10px;
-}
-.sneak-peek-button{
-    margin-right: 10px;
 }
 .modal-col{
     padding: 0px;
