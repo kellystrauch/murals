@@ -165,7 +165,18 @@ export default function InPersonTour({data}) {
               </div>
               <h3>Itinerary</h3>
               {spots.length === 0 && 
-                <em>Click a pin on the map to get started.</em>
+                <div>
+                  <em>
+                    <br/>
+                    Your itinerary is empty!
+                    <br/>
+                    <br/>
+                    <small>If you want to hit all the street art in town, click the Add All button (above).</small>
+                    <br/>
+                    <br/>
+                    <small>If you'd rather only visit the street art in a certain area of town, click on a marker, add it to your itinerary, and repeat. (You might want to zoom in first, though.)</small>
+                  </em>
+                </div>
               }
               {spots.length > 0 && 
                 <>

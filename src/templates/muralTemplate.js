@@ -17,7 +17,7 @@ function prepMuralData(currentMural){
     
     let previousSlug = parseInt(currentMural.slug) - 1;
     let nextSlug = parseInt(currentMural.slug) + 1;
-    let maxSlug = 151;
+    let maxSlug = 153;
     let minSlug = 100;
 
     currentMural.previousSlug = (previousSlug < minSlug ? maxSlug : previousSlug);

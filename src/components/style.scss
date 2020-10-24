@@ -1,7 +1,7 @@
 $color1: #00aeb8;
 $color2: #ffc107;
-//$color3: #f0643e;
-//$color4: #c7dac7;
+$color3: #c7dac7;
+//$color4: #f0643e;
 $soft-white: rgba(255, 255, 255, 0.95);
 $soft-black: rgba(0, 0, 0, 0.9);
 
@@ -263,6 +263,7 @@ body, html{
 }
 .template-header{
     margin-bottom: 10px;
+    color: $color3;
 }
 .carousel-caption{
     background-color: rgba(255, 255, 255, 0.5);
