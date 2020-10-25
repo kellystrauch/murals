@@ -98,20 +98,22 @@ export default function InPersonTour({data}) {
       <Layout>
         <div className="row">
 
-          <div className="col-sm-8 no-print">
-            <LoadScript googleMapsApiKey={process.env.GATSBY_GOOGLE_MAPS_API_KEY}>
-              <GoogleMap options={mapOptions} mapContainerStyle={{width: '100%', height: '620px'}} center={center} zoom={zoom}>
-                <MarkerClusterer options={clustererOptions}>
-                  {(clusterer) =>
-                    locations.map((location, idx) => (
-                      <div key={idx}>
-                        <Marker position={location} clusterer={clusterer} title={location.name} onClick={ () => { clickMarker(location.slug)}} />
-                      </div>
-                    ))
-                  }
-                </MarkerClusterer>
-              </GoogleMap>
-            </LoadScript>
+          <div className="col-lg-8 no-print">
+            <div className="map-wrapper">
+              <LoadScript googleMapsApiKey={process.env.GATSBY_GOOGLE_MAPS_API_KEY}>
+                <GoogleMap options={mapOptions} mapContainerStyle={{width: '100%', height: '620px'}} center={center} zoom={zoom}>
+                  <MarkerClusterer options={clustererOptions}>
+                    {(clusterer) =>
+                      locations.map((location, idx) => (
+                        <div key={idx}>
+                          <Marker position={location} clusterer={clusterer} title={location.name} onClick={ () => { clickMarker(location.slug)}} />
+                        </div>
+                      ))
+                    }
+                  </MarkerClusterer>
+                </GoogleMap>
+              </LoadScript>
+            </div>
 
             { selected &&
             <Modal show={show} onHide={hideModal}>
@@ -154,7 +156,7 @@ export default function InPersonTour({data}) {
 
           </div>
 
-          <div className="col-sm-4">
+          <div className="col-lg-4">
             <div className="scrollable-section">
               <div className="itinerary-button-container no-print">
                 <div>

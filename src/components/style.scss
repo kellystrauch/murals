@@ -141,8 +141,6 @@ body, html{
     }
 }
 .heading-col{
-    // display: flex;
-    // justify-content: center;
     padding-left: 0px;
     padding-right: 0px;
 }
@@ -173,8 +171,6 @@ body, html{
 .spoilers{
     font-size: 24px;
     font-weight: 400;
-    // font-weight: 200;
-    // font-style: italic;
 }
 .transparent-brick{
     @media (min-width: 992px){
@@ -311,10 +307,17 @@ body, html{
 }
 
 //in-person tour page
+.map-wrapper{
+    @media (max-width: 991.98px) {
+        margin-bottom: 15px;
+    }
+}
 .scrollable-section{
-    max-height: 620px;
-    overflow: auto;
-    padding-right: 10px;
+    @media (min-width: 992px) {
+        max-height: 620px;
+        overflow: auto;
+        padding-right: 10px;
+    }
 }
 .itinerary-button-container{
     display: flex;
