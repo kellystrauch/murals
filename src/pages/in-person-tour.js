@@ -57,8 +57,14 @@ export default function InPersonTour({data}) {
   }
 
   function addSpot(location){
-    setSpots( spots.concat(location) );
-    //TODO change the marker icon
+    if( !spots.includes(location) ){
+      //if spot isn't already in itinerary, add it
+      setSpots( spots.concat(location) );
+      //TODO change the marker icon
+    }else{
+      //otherwise, move spot to end of itinerary
+      spots.push(spots.splice(spots.indexOf(location), 1)[0]);
+    }
     setShow(false);
   }
 
@@ -136,7 +142,9 @@ export default function InPersonTour({data}) {
                   </div>
                   {preview &&
                   <div className="col modal-col modal-col-right">
-                    <a href={`/${selected.slug}`} target="_blank"><Image src={selected.thumbnail} className="sneak-peek" alt={"thumbnail of " + selected.name} rounded /></a>
+                    <a href={`/${selected.slug}`} target="_blank" rel="noreferrer">
+                      <Image src={selected.thumbnail} className="sneak-peek" alt={"thumbnail of " + selected.name} rounded/>
+                    </a>
                   </div>}
                 </div>
               </Modal.Body>
