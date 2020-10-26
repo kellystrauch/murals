@@ -12,8 +12,8 @@ export default function InPersonTour({data}) {
   const [ locations, setLocations ] = useState([]);
   const [ selected, setSelected ] = useState(null);
   const [ show, setShow ] = useState(false);
-  const [ center ] = useState({lat: 36.08653, lng: -94.17015});
-  const [ zoom ] = useState(13); //the bigger the zoom, the more zoomed in
+  const [ center, setCenter ] = useState({lat: 36.08653, lng: -94.17015});
+  const [ zoom, setZoom ] = useState(13); //the bigger the zoom, the more zoomed in
   const [ preview, setPreview ] = useState(false);
 
   const mapOptions = {
@@ -48,7 +48,7 @@ export default function InPersonTour({data}) {
 
   useEffect( () => {prepData()}, []);
 
-  function clickMarker(slug){
+  function openModal(slug){
     const location = locations.find(obj => {
       return obj.slug === slug
     })
@@ -56,16 +56,39 @@ export default function InPersonTour({data}) {
     setShow(true);
   }
 
+  function seeOnMap(location){
+    setCenter({lat: location.lat, lng: location.lng});
+
+    //https://github.com/JustFly1984/react-google-maps-api/issues/1069
+    setZoom(19);
+    setTimeout(() => {
+      setZoom(20);
+    }, 1);
+
+    //for mobile, scroll to the top so they actually see the map
+    window.scrollTo(0, 0);
+  }
+
   function addSpot(location){
-    if( !spots.includes(location) ){
-      //if spot isn't already in itinerary, add it
-      setSpots( spots.concat(location) );
-      //TODO change the marker icon
-    }else{
-      //otherwise, move spot to end of itinerary
-      spots.push(spots.splice(spots.indexOf(location), 1)[0]);
-    }
+    setSpots( spots.concat(location) );
+    //TODO change the marker icon
     setShow(false);
+  }
+
+  function isInSpots(location){
+    if( spots.includes(location) ){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  function removeSpot(slug){
+    let updatedSpots = spots.filter(function(obj){
+      return obj.slug !== slug;
+    })
+    setSpots(updatedSpots);
+
   }
 
   function addAllSpots(){
@@ -112,7 +135,7 @@ export default function InPersonTour({data}) {
                     {(clusterer) =>
                       locations.map((location, idx) => (
                         <div key={idx}>
-                          <Marker position={location} clusterer={clusterer} title={location.name} onClick={ () => { clickMarker(location.slug)}} />
+                          <Marker position={location} clusterer={clusterer} title={location.name} onClick={ () => { openModal(location.slug)}} />
                         </div>
                       ))
                     }
@@ -154,8 +177,10 @@ export default function InPersonTour({data}) {
                     <Button className="btn-sm btn-secondary" onClick={hideModal}>Close</Button>
                   </div>
                   <div className="col-9 modal-button-col other-buttons-col">
-                    <Button className="btn-sm btn-warning button-right-margin" onClick={toggleSneakPeek}>Sneak Peek</Button>
-                    <Button className="btn-sm btn-warning" onClick={() => { addSpot(selected)} }>Add to Itinerary</Button>
+                    <Button className="btn-sm btn-warning right-margin-10" onClick={toggleSneakPeek}>Sneak Peek</Button>
+                    {!isInSpots(selected) && <span>
+                      <Button className="btn-sm btn-warning" onClick={() => { addSpot(selected)} }>Add to Itinerary</Button>
+                    </span>}
                   </div>
                 </div>
               </Modal.Footer>
@@ -168,40 +193,63 @@ export default function InPersonTour({data}) {
             <div className="scrollable-section">
               <div className="itinerary-button-container no-print">
                 <div>
-                  <Button className="btn-sm btn-warning button-right-margin" onClick={addAllSpots}>Add All</Button>
-                  <Button className="btn-sm btn-warning button-right-margin" onClick={clearAllSpots}>Clear All</Button>
+                  <Button className="btn-sm btn-warning right-margin-10" onClick={addAllSpots}>Add All</Button>
+                  <Button className="btn-sm btn-warning right-margin-10" onClick={clearAllSpots}>Clear All</Button>
                 </div>
                 <Button className="btn-sm btn-warning" onClick={print}>Print Itinerary</Button>
               </div>
-              <h3>Itinerary</h3>
+              <h3 className="itinerary-heading">Itinerary</h3>
               {spots.length === 0 && 
                 <div>
                   <em>
-                    <br/>
-                    Your itinerary is empty!
-                    <br/>
-                    <br/>
-                    <small>If you want to hit all the street art in town, click the Add All button (above).</small>
-                    <br/>
-                    <br/>
-                    <small>If you'd rather only visit the street art in a certain area of town, click on a marker, add it to your itinerary, and repeat. (You might want to zoom in first, though.)</small>
+                    <span className="empty-itinerary">Your itinerary is empty!</span>
+                    <ul>
+                      <li>
+                        If you want to visit all the street art in town, click the Add All button above.
+                      </li>
+                      <li>
+                        If you'd rather only visit the street art in a certain part of town, click on a marker,
+                        add it to your itinerary, and repeat. (Consider zooming in first, though.)
+                      </li>
+                    </ul>
                   </em>
                 </div>
               }
+
               {spots.length > 0 && 
                 <>
-                  <ol>
-                    {spots.map( (spot, idx) => {
-                      return (
-                        <li key={idx}>
-                          {spot.name}
-                          <br/>
-                          { spot.building && <><small>{spot.building}</small><br/></> }
-                          <small>{spot.streetAddress}</small>
-                        </li>
-                      )
-                    })}
-                  </ol>
+                  {spots.map( (spot, idx) => {
+                    return (
+                      <div className="spot" key={idx}>
+                        <div className="spot-row">
+                          <div className="spot-left">
+                            {idx+1})
+                          </div>
+                          <div className="spot-middle">
+                            <span onClick={ () => { openModal(spot.slug)}} role="button" tabIndex="0">
+                              {spot.name}
+                            </span>
+                            <span onClick={ () => { seeOnMap(spot)}} role="button" tabIndex="0">
+                              <i className="fa fa-map-marker no-print"></i>
+                            </span>
+                          </div>
+                          <div className="spot-right">
+                            <span onClick={ () => { removeSpot(spot.slug)}} role="button" tabIndex="0">
+                              <i className="fa fa-times no-print"></i>
+                            </span>
+                          </div>
+                        </div>
+                        <div className="spot-row">
+                          <div className="spot-left">
+                          </div>
+                          <div>
+                            { spot.building && <>{spot.building}<br/></> }
+                            {spot.streetAddress}
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  })}
                 </>
               }
             </div>

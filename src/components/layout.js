@@ -1,4 +1,5 @@
 import React from "react"
+import Helmet from "react-helmet"
 import "./style.scss"
 import Navbar from "react-bootstrap/Navbar"
 import Nav from "react-bootstrap/Nav"
@@ -6,6 +7,9 @@ import Nav from "react-bootstrap/Nav"
 export default function Layout({children}) {
   return(
     <>
+      <Helmet>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+      </Helmet>
       <Navbar bg="dark" variant="dark" expand="md">
         <Navbar.Brand href="/">Fayetteville<span className="street-art">Street Art</span></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

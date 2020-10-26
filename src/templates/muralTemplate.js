@@ -42,13 +42,9 @@ export default function muralTemplate({data}) {
                 <div className="template-wrapper">
                     <div className="template-container">
                         <div className="row mobile-prev-next-button-row">
-                            <div className="col-xs-12">
-                                <span className="mobile-prev-next-button">
-                                    <a className="btn-sm btn-warning" href={`/${mural.previousSlug}`} role="button">Previous Mural</a>
-                                </span>
-                                <span className="mobile-prev-next-button">
-                                    <a className="btn-sm btn-warning" href={`/${mural.nextSlug}`} role="button">Next Mural</a>
-                                </span>
+                            <div className="col-xs-12 mobile-prev-next-button-col">
+                                <a className="btn-sm btn-warning" href={`/${mural.previousSlug}`} role="button">Previous Mural</a>
+                                <a className="btn-sm btn-warning" href={`/${mural.nextSlug}`} role="button">Next Mural</a>
                             </div>
                         </div>
                         <div className="row template-header-row">
