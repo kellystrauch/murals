@@ -40,6 +40,15 @@ module.exports = {
         ],
         display: 'swap'
       }
+    },
+
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // The property ID; the tracking code won't be generated without it
+        trackingId: "G-2XJ7NFJ4KQ",
+      }
     }
+
   ],
 }
