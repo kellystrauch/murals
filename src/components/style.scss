@@ -1,5 +1,6 @@
 $color1: #00aeb8;
 $color2: #ffc107;
+$color2-darker: #e0a800;
 //$color3: #c7dac7;
 //$color4: #f0643e;
 $soft-white: rgba(255, 255, 255, 0.95);
@@ -327,15 +328,25 @@ body, html{
         padding-right: 10px;
     }
 }
-.fa{
+.fa-map-marker{
     font-size: 24px !important;
     color: $color2;
+}
+.fa-map-marker:hover{
+    color: $color2-darker;
+}
+.map-marker-wrapper{
     margin-left: 10px;
 }
 .fa-times{
     color: $soft-white;
-    margin-right: 3px;
     font-size: 20px !important;
+}
+.fa-times:hover{
+    color: lightgray;
+}
+.fa-times-wrapper{
+    margin-right: 3px;
 }
 .spot{
     border-radius: 5px;
@@ -365,6 +376,9 @@ body, html{
     @media print{
         color: black;
     }
+}
+.spot-title:hover{
+    color: $color2-darker;
 }
 .spot-right{
     display: flex;

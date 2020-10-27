@@ -226,16 +226,20 @@ export default function InPersonTour({data}) {
                             {idx+1})
                           </div>
                           <div className="spot-middle">
-                            <span onClick={ () => { openModal(spot.slug)}} role="button" tabIndex="0">
+                            <span className="spot-title" onClick={ () => { openModal(spot.slug)}} role="button" tabIndex="0">
                               {spot.name}
                             </span>
-                            <span onClick={ () => { seeOnMap(spot)}} role="button" tabIndex="0">
-                              <i className="fa fa-map-marker no-print"></i>
+                            <span className="map-marker-wrapper">
+                              <span onClick={ () => { seeOnMap(spot)}} role="button" tabIndex="0">
+                                <i className="fa fa-map-marker no-print"></i>
+                              </span>
                             </span>
                           </div>
                           <div className="spot-right">
-                            <span onClick={ () => { removeSpot(spot.slug)}} role="button" tabIndex="0">
-                              <i className="fa fa-times no-print"></i>
+                            <span className="fa-times-wrapper">
+                              <span onClick={ () => { removeSpot(spot.slug)}} role="button" tabIndex="0">
+                                <i className="fa fa-times no-print"></i>
+                              </span>
                             </span>
                           </div>
                         </div>
