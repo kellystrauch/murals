@@ -92,7 +92,16 @@ export default function InPersonTour({data}) {
   }
 
   function addAllSpots(){
-    setSpots(locations);
+    let newSpots = [];
+    for(let i=0; i<spots.length; i++){
+      newSpots.push(spots[i]);
+    }
+    for(let i=0; i<locations.length; i++){
+      if( !spots.includes(locations[i]) ){
+        newSpots.push(locations[i]);
+      }
+    }
+    setSpots(newSpots);
     //TODO change the marker icon
   }
 
