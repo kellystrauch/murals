@@ -28,7 +28,7 @@ export default function Home() {
                   <Link to="/in-person-tour/" className="btn btn-lg btn-warning" role="button">Tour In Person</Link>
                 </div>
                 <div className="col-12 tagline-top">
-                  Get a map to see the murals in real life,
+                  Create an itinerary of murals to visit in real life,
                 </div>
                 <div className="col-12 tagline-bottom">
                   with no photos to ruin the surprise.
