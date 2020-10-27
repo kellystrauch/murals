@@ -87,6 +87,9 @@ a:hover{
     font-family: $nav-font !important;
     padding-left: 18px !important;
 }
+.nav-link:hover{
+    color: $color2-darker !important;
+}
 .navbar-collapse{
     justify-content: flex-end;
 }
