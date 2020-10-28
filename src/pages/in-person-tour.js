@@ -15,6 +15,7 @@ export default function InPersonTour({data}) {
   const [ center, setCenter ] = useState({lat: 36.08653, lng: -94.17015});
   const [ zoom, setZoom ] = useState(13); //the bigger the zoom, the more zoomed in
   const [ preview, setPreview ] = useState(false);
+  const [ markers, setMarkers ] = useState([]);
 
   const mapOptions = {
     fullscreenControl: false,
@@ -48,6 +49,13 @@ export default function InPersonTour({data}) {
 
   useEffect( () => {prepData()}, []);
 
+  function loadMarkers(clusterer){
+    for(let i=0; i<clusterer.markers.length; i++){
+      clusterer.markers[i].setIcon("/img/red_marker.png");
+    }
+    setMarkers(clusterer.markers);
+  }
+
   function openModal(slug){
     const location = locations.find(obj => {
       return obj.slug === slug
@@ -71,8 +79,13 @@ export default function InPersonTour({data}) {
 
   function addSpot(location){
     setSpots( spots.concat(location) );
-    //TODO change the marker icon
     setShow(false);
+    
+    //change marker icon
+    const marker = markers.find(obj => {
+      return obj.title === location.slug
+    })
+    marker.setIcon("/img/purple_marker.png");
   }
 
   function isInSpots(location){
@@ -89,6 +102,11 @@ export default function InPersonTour({data}) {
     })
     setSpots(updatedSpots);
 
+    //change marker icon
+    const marker = markers.find(obj => {
+      return obj.title === slug
+    })
+    marker.setIcon("/img/red_marker.png");
   }
 
   function addAllSpots(){
@@ -102,11 +120,20 @@ export default function InPersonTour({data}) {
       }
     }
     setSpots(newSpots);
-    //TODO change the marker icon
+    
+    //change all marker icons
+    for(let i=0; i<markers.length; i++){
+      markers[i].setIcon("/img/purple_marker.png");
+    }
   }
 
   function clearAllSpots(){
     setSpots([]);
+
+    //change all marker icons
+    for(let i=0; i<markers.length; i++){
+      markers[i].setIcon("/img/red_marker.png");
+    }
   }
 
   function print(){
@@ -144,7 +171,7 @@ export default function InPersonTour({data}) {
                     {(clusterer) =>
                       locations.map((location, idx) => (
                         <div key={idx}>
-                          <Marker position={location} clusterer={clusterer} title={location.name} onClick={ () => { openModal(location.slug)}} />
+                          <Marker position={location} clusterer={clusterer} title={location.slug} onClick={ () => { openModal(location.slug)}} onLoad={ () => { loadMarkers(clusterer)}} />
                         </div>
                       ))
                     }
