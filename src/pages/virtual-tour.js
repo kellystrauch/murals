@@ -13,6 +13,9 @@ export default function VirtualTour({data}) {
       </Helmet>
 
       <Layout>
+        <div className="mobile-instructions">
+          <em><small>Click a thumbnail for more photos of that mural.</small></em>
+        </div>
         <div className="thumbnail-grid-wrapper">
           <div className="row thumbnail-row">
             {data.allContentfulMural.nodes.map((node, index) => (

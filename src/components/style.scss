@@ -209,6 +209,14 @@ body, html{
 }
 
 //virtual tour page
+.mobile-instructions{
+    width: 100%;
+    text-align: center;
+    margin-bottom: -10px;
+    @media (min-width: 768px) {
+        display: none;
+    }
+}
 .thumbnail{
     width: 250px;
     height: 250px;
