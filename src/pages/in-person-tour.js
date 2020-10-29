@@ -49,11 +49,13 @@ export default function InPersonTour({data}) {
 
   useEffect( () => {prepData()}, []);
 
-  function loadMarkers(clusterer){
-    for(let i=0; i<clusterer.markers.length; i++){
-      clusterer.markers[i].setIcon("/img/red_marker.png");
+  function loadMarkers(clusterer, index){
+    if(index === 0){
+      for(let i=0; i<clusterer.markers.length; i++){
+        clusterer.markers[i].setIcon("/img/red_marker.png");
+      }
+      setMarkers(clusterer.markers);
     }
-    setMarkers(clusterer.markers);
   }
 
   function openModal(slug){
@@ -171,7 +173,7 @@ export default function InPersonTour({data}) {
                     {(clusterer) =>
                       locations.map((location, idx) => (
                         <div key={idx}>
-                          <Marker position={location} clusterer={clusterer} title={location.slug} onClick={ () => { openModal(location.slug)}} onLoad={ () => { loadMarkers(clusterer)}} />
+                          <Marker position={location} clusterer={clusterer} title={location.slug} onClick={ () => { openModal(location.slug)}} onLoad={ () => { loadMarkers(clusterer, idx)}} />
                         </div>
                       ))
                     }
