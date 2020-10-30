@@ -82,6 +82,7 @@ export default function InPersonTour({data}) {
   function addSpot(location){
     setSpots( spots.concat(location) );
     setShow(false);
+    setPreview(false);
     
     //change marker icon
     const marker = markers.find(obj => {
