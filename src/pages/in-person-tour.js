@@ -49,13 +49,13 @@ export default function InPersonTour({data}) {
 
   useEffect( () => {prepData()}, []);
 
-  function loadMarkers(clusterer, index){
-    if(index === 0){
-      for(let i=0; i<clusterer.markers.length; i++){
-        clusterer.markers[i].setIcon("/img/red_marker.png");
-      }
-      setMarkers(clusterer.markers);
-    }
+  function loadMarkers(clusterer, index, slug){
+    let newMarker = clusterer.markers[index];
+    newMarker.setIcon("/img/red_marker.png");
+    newMarker.slug = slug;
+    let newMarkers = markers;
+    newMarkers.push(newMarker);
+    setMarkers(newMarkers);
   }
 
   function openModal(slug){
@@ -86,7 +86,7 @@ export default function InPersonTour({data}) {
     
     //change marker icon
     const marker = markers.find(obj => {
-      return obj.title === location.slug
+      return obj.slug === location.slug
     })
     marker.setIcon("/img/purple_marker.png");
   }
@@ -107,7 +107,7 @@ export default function InPersonTour({data}) {
 
     //change marker icon
     const marker = markers.find(obj => {
-      return obj.title === slug
+      return obj.slug === slug
     })
     marker.setIcon("/img/red_marker.png");
   }
@@ -174,7 +174,7 @@ export default function InPersonTour({data}) {
                     {(clusterer) =>
                       locations.map((location, idx) => (
                         <div key={idx}>
-                          <Marker position={location} clusterer={clusterer} title={location.slug} onClick={ () => { openModal(location.slug)}} onLoad={ () => { loadMarkers(clusterer, idx)}} />
+                          <Marker position={location} clusterer={clusterer} title={location.name} onClick={ () => { openModal(location.slug)}} onLoad={ () => { loadMarkers(clusterer, idx, location.slug)}} />
                         </div>
                       ))
                     }
