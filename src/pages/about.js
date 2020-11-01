@@ -2,9 +2,6 @@ import React from "react"
 import Helmet from "react-helmet"
 import Layout from "../components/layout"
 import "../components/style.scss"
-// import Accordion from "react-bootstrap/Accordion"
-// import Card from "react-bootstrap/Card"
-// import Button from "react-bootstrap/Button"
 
 export default function VirtualTour({data}) {
   return(
@@ -106,28 +103,6 @@ export default function VirtualTour({data}) {
               <a href="mailto:kellystrauchblog@gmail.com"> email me</a> with the address of the 
               mural, and I'll get it added as soon as I can.
             </p>
-            {/* <Accordion>
-              <Card>
-                <Card.Header>
-                  <Accordion.Toggle as={Button} variant="link" eventKey="0">
-                    Click me!
-                  </Accordion.Toggle>
-                </Card.Header>
-                <Accordion.Collapse eventKey="0">
-                  <Card.Body>Hello! I'm the body</Card.Body>
-                </Accordion.Collapse>
-              </Card>
-              <Card>
-                <Card.Header>
-                  <Accordion.Toggle as={Button} variant="link" eventKey="1">
-                    Click me!
-                  </Accordion.Toggle>
-                </Card.Header>
-                <Accordion.Collapse eventKey="1">
-                  <Card.Body>Hello! I'm another body</Card.Body>
-                </Accordion.Collapse>
-              </Card>
-            </Accordion> */}
           </div>
         </div>
       </Layout>
