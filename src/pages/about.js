@@ -36,7 +36,6 @@ export default function VirtualTour({data}) {
               That said, for anyone who really wants to look at photos, there are a whole bunch of
               photos here, too.
             </p>
-            <hr></hr>
             <h4 className="question-heading">
               Who took the photos on this site?
             </h4>
