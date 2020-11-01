@@ -14,7 +14,7 @@ export default function VirtualTour({data}) {
 
       <Layout>
         <div className="mobile-instructions">
-          <em><small>Click a thumbnail for more photos of that mural.</small></em>
+          <span className="color3"><em>Click any thumbnail for more photos of that mural.</em></span>
         </div>
         <div className="thumbnail-grid-wrapper">
           <div className="row thumbnail-row">

@@ -17,6 +17,7 @@ export default function Layout({children}) {
           <Nav className="mr-auto">
             <Nav.Link href="/in-person-tour">In-Person Tour</Nav.Link>
             <Nav.Link href="/virtual-tour">Virtual Tour</Nav.Link>
+            <Nav.Link href="/about">About</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

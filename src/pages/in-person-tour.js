@@ -240,18 +240,18 @@ export default function InPersonTour({data}) {
               <h3 className="itinerary-heading">Itinerary</h3>
               {spots.length === 0 && 
                 <div>
-                  <em>
+                  <em><span className="color3">
                     <span className="empty-itinerary">Your itinerary is empty!</span>
                     <ul>
                       <li>
                         If you want to visit all the street art in town, click the Add All button above.
                       </li>
                       <li>
-                        If you'd rather only visit the street art in a certain part of town, click on a marker,
-                        add it to your itinerary, and repeat. (Consider zooming in first, though.)
+                        If you'd rather only visit the street art in a certain part of town, click on any pin on the map,
+                        add that mural to your itinerary, and repeat. (Consider zooming in first, though.)
                       </li>
                     </ul>
-                  </em>
+                  </span></em>
                 </div>
               }
 
