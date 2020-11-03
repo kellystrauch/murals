@@ -169,7 +169,7 @@ export default function InPersonTour({data}) {
           <div className="col-lg-8 no-print">
             <div className="map-wrapper">
               <LoadScript googleMapsApiKey={process.env.GATSBY_GOOGLE_MAPS_API_KEY}>
-                <GoogleMap options={mapOptions} mapContainerStyle={{width: '100%', height: '620px'}} center={center} zoom={zoom}>
+                <GoogleMap options={mapOptions} mapContainerStyle={{width: '100%', height: '100%'}} center={center} zoom={zoom}>
                   <MarkerClusterer options={clustererOptions}>
                     {(clusterer) =>
                       locations.map((location, idx) => (

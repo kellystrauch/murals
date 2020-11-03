@@ -252,20 +252,24 @@ body, html{
     //custom breakpoints for the width(s) of this particular grid,
     //depending on how many thumbnails fit on the screen
     @media (min-width: 590px) {
-        //width of grid for 2 thumbnails: 15 + 250 + 30 + 250 + 15
+        //width of grid for 2 thumbnails: 15 + 250 + (30 + 250)*1 + 15
         width: 560px;
     }
     @media (min-width: 870px) {
-        //width of grid for 3 thumbnails: 15 + 250 + 30 + 250 + 30 + 250 + 15
+        //width of grid for 3 thumbnails: 15 + 250 + (30 + 250)*2 + 15
         width: 840px;
     }
     @media (min-width: 1150px) {
-        //width of grid for 4 thumbnails: 15 + 250 + 30 + 250 + 30 + 250 + 30 + 250 + 15
+        //width of grid for 4 thumbnails: 15 + 250 + (30 + 250)*3 + 15
         width: 1120px;
     }
     @media (min-width: 1430px) {
-        //width of grid for 5 thumbnails: 15 + 250 + 30 + 250 + 30 + 250 + 30 + 250 + 30 + 250 + 15
+        //width of grid for 5 thumbnails: 15 + 250 + (30 + 250)*4 + 15
         width: 1400px;
+    }
+    @media (min-width: 1710px) {
+        //width of grid for 5 thumbnails: 15 + 250 + (30 + 250)*5 + 15
+        width: 1680px;
     }
 }
 
@@ -338,6 +342,7 @@ body, html{
 
 //in-person tour page
 .map-wrapper{
+    height: calc(100vh - 130px);
     @media (max-width: 991.98px) {
         margin-bottom: 15px;
     }
@@ -348,7 +353,7 @@ body, html{
 }
 .scrollable-section{
     @media (min-width: 992px) {
-        max-height: 620px;
+        height: calc(100vh - 130px);
         overflow: auto;
         padding-right: 10px;
     }

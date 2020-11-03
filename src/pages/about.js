@@ -40,7 +40,7 @@ export default function VirtualTour({data}) {
               Who took the photos on this site?
             </h4>
             <p>
-              I did, and forgive me.  I'm a person who owns a camera... not a photographer.
+              I did, and forgive me for that.  I'm a person who owns a camera... not a photographer.
             </p>
             <h4 className="question-heading">
               What are you counting as "street art"?
