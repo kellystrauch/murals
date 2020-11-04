@@ -12,7 +12,7 @@ export default function InPersonTour({data}) {
   const [ locations, setLocations ] = useState([]);
   const [ selected, setSelected ] = useState(null);
   const [ show, setShow ] = useState(false);
-  const [ center, setCenter ] = useState({lat: 36.08653, lng: -94.17015});
+  const [ center, setCenter ] = useState({lat: 36.08460, lng: -94.17015});
   const [ zoom, setZoom ] = useState(13); //the bigger the zoom, the more zoomed in
   const [ preview, setPreview ] = useState(false);
   const [ markers, setMarkers ] = useState([]);
