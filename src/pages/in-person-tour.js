@@ -193,7 +193,7 @@ export default function InPersonTour({data}) {
               </Modal.Header>
               <Modal.Body>
                 <div className="row">
-                  <div className="col modal-col modal-col-left">
+                  <div className="col no-left-right-padding">
                     { selected.artists && <>
                       <span className="modal-label">Artist:</span><br/>
                       {selected.artists}<br/><br/>
@@ -203,7 +203,7 @@ export default function InPersonTour({data}) {
                     {selected.streetAddress}
                   </div>
                   {preview &&
-                  <div className="col modal-col modal-col-right">
+                  <div className="col modal-col-right no-left-right-padding">
                     <a href={`/${selected.slug}`} target="_blank" rel="noreferrer">
                       <Image src={selected.thumbnail} className="sneak-peek" alt={"thumbnail of " + selected.name} rounded/>
                     </a>
@@ -211,11 +211,11 @@ export default function InPersonTour({data}) {
                 </div>
               </Modal.Body>
               <Modal.Footer>
-                <div className="row modal-button-row">
-                  <div className="col-3 modal-button-col close-button-col">
+                <div className="row full-width">
+                  <div className="col-3 no-left-right-padding">
                     <Button className="btn-sm btn-secondary" onClick={hideModal}>Close</Button>
                   </div>
-                  <div className="col-9 modal-button-col other-buttons-col">
+                  <div className="col-9 no-left-right-padding flex-end">
                     <Button className="btn-sm btn-warning right-margin-10" onClick={toggleSneakPeek}>Sneak Peek</Button>
                     {!isInSpots(selected) && <span>
                       <Button className="btn-sm btn-warning" onClick={() => { addSpot(selected)} }>Add to Itinerary</Button>
@@ -274,7 +274,7 @@ export default function InPersonTour({data}) {
                               </span>
                             </span>
                           </div>
-                          <div className="spot-right">
+                          <div className="flex-end">
                             <span className="fa-times-wrapper">
                               <span onClick={ () => { removeSpot(spot.slug)}} role="button" tabIndex="0">
                                 <i className="fa fa-times no-print"></i>

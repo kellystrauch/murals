@@ -50,7 +50,7 @@ export default function muralTemplate({data}) {
                                 {mural.slug !== maxSlug && <a className="btn-sm btn-warning" href={`/${mural.nextSlug}`} role="button">Next Mural</a>}
                             </div>}
                         </div>
-                        <div className="row template-header-row">
+                        <div className="row full-width">
                             <div className="col desktop-prev-next-button-col desktop-prev-button-col">
                                 {mural.slug !== minSlug && <div>
                                     <a className="btn-sm btn-warning" href={`/${mural.previousSlug}`} role="button">Previous Mural</a>
@@ -64,14 +64,14 @@ export default function muralTemplate({data}) {
                                     {mural.artistAndYear}
                                 </div>
                             </div>
-                            <div className="col desktop-prev-next-button-col desktop-next-button-col">
+                            <div className="col desktop-prev-next-button-col flex-end">
                                 {mural.slug !== maxSlug && <div>
                                     <a className="btn-sm btn-warning" href={`/${mural.nextSlug}`} role="button">Next Mural</a>
                                 </div>}
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col mural-col">
+                            <div className="col no-left-right-padding">
                                 <Carousel>
                                     {mural.photos.map((photo, index) => (
                                         <Carousel.Item key={index}>
