@@ -28,15 +28,8 @@ module.exports = {
       options: {
         fonts: [
           `Staatliches`,
-          `Cabin Sketch`,
-          `Freckle Face`,
-          `Sanchez`,
           `Overpass`,
-          `Cabin`,
           `Kanit\:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900`,
-          `Literata`,
-          `Nunito Sans`,
-          //`source sans pro\:300,400,400i,700` // you can also specify font weights and styles
         ],
         display: 'swap'
       }
