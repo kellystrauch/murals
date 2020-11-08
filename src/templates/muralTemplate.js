@@ -4,6 +4,9 @@ import Layout from "../components/layout"
 import { graphql } from "gatsby"
 import Carousel from "react-bootstrap/Carousel"
 
+const maxSlug = '159';
+const minSlug = '100';
+
 function prepMuralData(currentMural){
     if(currentMural.artists == null && currentMural.year == null){
         currentMural.artistAndYear = '';
@@ -14,14 +17,9 @@ function prepMuralData(currentMural){
     }else{
         currentMural.artistAndYear = currentMural.artists + ' • ' + currentMural.year;
     }
-    
-    let previousSlug = parseInt(currentMural.slug) - 1;
-    let nextSlug = parseInt(currentMural.slug) + 1;
-    let maxSlug = 159;
-    let minSlug = 100;
 
-    currentMural.previousSlug = (previousSlug < minSlug ? maxSlug : previousSlug);
-    currentMural.nextSlug = (nextSlug > maxSlug ? minSlug : nextSlug);
+    currentMural.previousSlug = parseInt(currentMural.slug) - 1;
+    currentMural.nextSlug = parseInt(currentMural.slug) + 1;
 
     return currentMural;
 }
@@ -42,16 +40,21 @@ export default function muralTemplate({data}) {
                 <div className="template-wrapper">
                     <div className="template-container">
                         <div className="row mobile-prev-next-button-row">
-                            <div className="col-xs-12 mobile-prev-next-button-col">
-                                <a className="btn-sm btn-warning" href={`/${mural.previousSlug}`} role="button">Previous Mural</a>
+                            {mural.slug === minSlug && <div className="col-xs-12 mobile-prev-next-button-col flex-end">
                                 <a className="btn-sm btn-warning" href={`/${mural.nextSlug}`} role="button">Next Mural</a>
-                            </div>
+                            </div>}
+                        </div>
+                        <div className="row mobile-prev-next-button-row">
+                            {mural.slug !== minSlug && <div className="col-xs-12 mobile-prev-next-button-col">
+                                <a className="btn-sm btn-warning" href={`/${mural.previousSlug}`} role="button">Previous Mural</a>
+                                {mural.slug !== maxSlug && <a className="btn-sm btn-warning" href={`/${mural.nextSlug}`} role="button">Next Mural</a>}
+                            </div>}
                         </div>
                         <div className="row template-header-row">
                             <div className="col desktop-prev-next-button-col desktop-prev-button-col">
-                                <div>
+                                {mural.slug !== minSlug && <div>
                                     <a className="btn-sm btn-warning" href={`/${mural.previousSlug}`} role="button">Previous Mural</a>
-                                </div>
+                                </div>}
                             </div>
                             <div className="col">
                                 <div className="template-header">
@@ -62,9 +65,9 @@ export default function muralTemplate({data}) {
                                 </div>
                             </div>
                             <div className="col desktop-prev-next-button-col desktop-next-button-col">
-                                <div>
+                                {mural.slug !== maxSlug && <div>
                                     <a className="btn-sm btn-warning" href={`/${mural.nextSlug}`} role="button">Next Mural</a>
-                                </div>
+                                </div>}
                             </div>
                         </div>
                         <div className="row">

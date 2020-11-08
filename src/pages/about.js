@@ -71,8 +71,7 @@ export default function VirtualTour({data}) {
               What about the painted electrical boxes in town?
             </h4>
             <p>
-              Fair question!  There are some ridiculously cool ones.  (Look for the
-              Banksy-inspired one on the corner of Gregg Ave and Sycamore St; it might be my favorite.)
+              Fair question!  There are some ridiculously cool ones.
             </p>
             <p>
               For now, I'm not adding them to this site simply because there are <em>so many</em> that I 

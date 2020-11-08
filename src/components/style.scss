@@ -330,6 +330,9 @@ body, html{
     justify-content: space-between;
     margin-bottom: 10px;
 }
+.flex-end{
+    justify-content: flex-end;
+}
 .desktop-prev-button-col{
     display: flex;
     justify-content: flex-start;
