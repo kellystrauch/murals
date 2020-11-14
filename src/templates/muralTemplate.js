@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import { graphql } from "gatsby"
 import Carousel from "react-bootstrap/Carousel"
 
-const maxSlug = '159';
+const maxSlug = '161';
 const minSlug = '100';
 
 function prepMuralData(currentMural){
