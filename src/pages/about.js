@@ -74,18 +74,24 @@ export default function VirtualTour({data}) {
               Fair question!  There are some ridiculously cool ones.
             </p>
             <p>
-              For now, I'm not adding them to this site simply because there are <em>so many</em> that I 
-              fear they would drown out the other murals.  That said, if you tour all of the 
-              murals I've included on this site so far, you'll inevitably see a bunch (dare I say, most?) of the 
-              painted electrical boxes in town anyway over the course of your journey.
+              For now, I'm not adding them to this site simply because there are <em>so many </em>  
+              that I fear they would drown out the other murals.  That said, if you tour all of 
+              the murals on this site, you'll drive by a bunch of these.
+            </p>
+            <p>
+              Also note that the City of Fayetteville maintains a map of publicly funded art that not  
+              only includes many of the painted electrical boxes in town, but also the painted storm  
+              drains, artsy bike racks, statues, benches, and murals that are only accessible by trail. 
+              Check out their map <a href="https://maps.fayetteville-ar.gov/PublicArt">here</a>.
+              (Fair warning: photos await!)
             </p>
             <h4 className="question-heading">
               Why no West Fayetteville murals?
             </h4>
             <p>
               Sorry, sorry, sorry!  I spend almost no time in West Fayetteville, so I have no idea 
-              where the murals over there are.  If you know of any West Fayetteville murals, please
-              feel free to reach out, and I'll get them added.  (See next question.)
+              where the murals there are.  If you know of any, please
+              feel free to reach out and I'll get them added.  (See next question.)
             </p>
             <h4 className="question-heading">
               You missed a mural!  How do I contact you?
@@ -95,7 +101,7 @@ export default function VirtualTour({data}) {
             </p>
             <p>
               Just to save us both some time, please review the answer to the 
-              <span className="color3"> What are you counting as "street art"? </span> 
+              <span className="color3"><b> What are you counting as "street art"? </b></span> 
               question above to make sure that the mural you'd like to see added meets 
               the criteria for this site.  If it does, feel free to 
               <a href="mailto:kellystrauchblog@gmail.com"> email me</a> with the address of the 
