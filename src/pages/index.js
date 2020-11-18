@@ -9,6 +9,11 @@ export default function Home() {
       <Helmet htmlAttributes={{ lang: 'en' }}>
         <title>Fayetteville Street Art</title>
         <meta name="description" content="Tour the street art of Fayetteville, AR.  You get to choose if you want a virtual tour or an in-person one!"></meta>
+        <meta property="og:url" content="https://www.fayettevillestreetart.com" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Fayetteville Street Art" />
+        <meta property="og:description" content="Tour the street art of Fayetteville, AR.  You get to choose if you want a virtual tour or an in-person one!" />
+        <meta property="og:image" content="/img/gnome.jpg" />
       </Helmet>
 
       <div className="index-wrapper">

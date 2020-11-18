@@ -161,6 +161,11 @@ export default function InPersonTour({data}) {
       <Helmet htmlAttributes={{ lang: 'en' }}>
         <title>In-Person Tour | Fayetteville Street Art</title>
         <meta name="description" content="Get all the information you need for an in-person tour of the street art of Fayetteville, AR."></meta>
+        <meta property="og:url" content="https://www.fayettevillestreetart.com/in-person-tour" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="In-Person Tour | Fayetteville Street Art" />
+        <meta property="og:description" content="Get all the information you need for an in-person tour of the street art of Fayetteville, AR." />
+        <meta property="og:image" content="/img/gnome.jpg" />
       </Helmet>
 
       <Layout>

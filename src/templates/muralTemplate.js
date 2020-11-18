@@ -33,7 +33,12 @@ export default function muralTemplate({data}) {
         <>
             <Helmet htmlAttributes={{ lang: 'en' }}>
                 <title>{mural.name} | Fayetteville Street Art</title>
-                <meta name="description" content={`Browse photos of the ${mural.name} mural in Fayetteville, AR.`}></meta>
+                <meta name="description" content={`Browse photos of ${mural.name} in Fayetteville, AR.`}></meta>
+                <meta property="og:url" content={`https://www.fayettevillestreetart.com/${mural.slug}`} />
+                <meta property="og:type" content="website" />
+                <meta property="og:title" content="{mural.name} | Fayetteville Street Art" />
+                <meta property="og:description" content={`Browse photos of ${mural.name} in Fayetteville, AR.`} />
+                <meta property="og:image" content={mural.photos[0].file.url} />
             </Helmet>
 
             <Layout>

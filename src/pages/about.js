@@ -8,7 +8,12 @@ export default function VirtualTour({data}) {
     <>
       <Helmet htmlAttributes={{ lang: 'en' }}>
         <title>About | Fayetteville Street Art</title>
-        <meta name="description" content="Obligatory about page for the Fayetteville Street Art site."></meta>
+        <meta name="description" content="Obligatory About page for the Fayetteville Street Art website."></meta>
+        <meta property="og:url" content="https://www.fayettevillestreetart.com/about" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="About | Fayetteville Street Art" />
+        <meta property="og:description" content="Obligatory About page for the Fayetteville Street Art website." />
+        <meta property="og:image" content="/img/gnome.jpg" />
       </Helmet>
 
       <Layout>
