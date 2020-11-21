@@ -18,8 +18,8 @@ export default function VirtualTour({data}) {
       </Helmet>
 
       <Layout>
-        <div className="mobile-instructions">
-          <span className="color3"><em>Click any thumbnail for more photos of that mural.</em></span>
+        <div className="instructions">
+          <span className="color3"><em>Click any mural's image below for full-size photos of it.</em></span>
         </div>
         <div className="thumbnail-grid-wrapper">
           <div className="row thumbnail-row">

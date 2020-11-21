@@ -91,14 +91,6 @@ export default function VirtualTour({data}) {
               (Fair warning: photos await!)
             </p>
             <h4 className="question-heading">
-              Why no West Fayetteville murals?
-            </h4>
-            <p>
-              Sorry, sorry, sorry!  I spend almost no time in West Fayetteville, so I have no idea 
-              where the murals there are.  If you know of any, please
-              feel free to reach out and I'll get them added.  (See next question.)
-            </p>
-            <h4 className="question-heading">
               You missed a mural!  How do I contact you?
             </h4>
             <p>
